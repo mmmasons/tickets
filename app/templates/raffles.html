@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draws</title>
+</head>
+<body>
+    <h1>List of draws</h1>
+    <ul>
+    {% for raffle in raffles %}
+        <li>
+            <a href="/{{raffle.id}}"># {{ raffle.id }} {{ raffle.title }}</a>
+            <ul>
+                <li><a href="/tickets/{{raffle.id}}">All tickets</a></li>
+                <li><a href="/tickets/{{raffle.id}}?is_stars=true">Tickets for the stars</a></li>
+                <li><a href="/tickets/{{raffle.id}}?is_win=true">Winning tickets</a></li>
+                <li><a href="/tickets/{{raffle.id}}?is_win_all_stars=true">Winning all stars tickets</a></li>
+                <li><a href="/shaffle/{{raffle.id}}">Shuffle Winning tickets</a></li>
+                <li><a href="/shaffle/{{raffle.id}}/stars">Shuffle Winning all stars tickets</a></li>
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
